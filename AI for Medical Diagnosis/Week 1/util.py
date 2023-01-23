@@ -4,7 +4,7 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 from keras import backend as K
-from keras.preprocessing import image
+import keras.utils as image
 from sklearn.metrics import roc_auc_score, roc_curve
 from tensorflow.compat.v1.logging import INFO, set_verbosity
 
