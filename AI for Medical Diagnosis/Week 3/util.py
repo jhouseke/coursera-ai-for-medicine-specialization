@@ -7,15 +7,15 @@ import numpy as np
 import tensorflow as tf
 from IPython.display import Image
 from keras import backend as K
-from keras.engine import Input, Model
+from keras import Input, Model
 from keras.layers import (
     Activation,
     Conv3D,
-    Deconvolution3D,
+    Conv3DTranspose,
     MaxPooling3D,
     UpSampling3D,
 )
-from keras.layers.merge import concatenate
+from keras.layers import concatenate
 from keras.optimizers import Adam
 from keras.utils import to_categorical
 from tensorflow.compat.v1.logging import INFO, set_verbosity
@@ -79,8 +79,8 @@ def visualize_data_gif(data_):
         z = data_[:, :, min(i, data_.shape[2] - 1)]
         img = np.concatenate((x, y, z), axis=1)
         images.append(img)
-    imageio.mimsave("/tmp/gif.gif", images, duration=0.01)
-    return Image(filename="/tmp/gif.gif", format='png')
+    imageio.mimsave("./tmp/gif.gif", images, duration=0.01)
+    return Image(filename="./tmp/gif.gif", format='png')
 
 
 # Some code was borrowed from:
